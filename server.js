@@ -19,7 +19,6 @@ app.use(express.cookieParser());
 app.use(express.session({secret: '2234567890QWERTY'}));
 app.use(app.router);
 
-
 function checkAuth(req, res, next) {
     if (typeof(req.session.user_id) == "number") {
         next();
@@ -176,6 +175,7 @@ app.use('/', express.static(__dirname + '/public/'));
 io = io.listen(app.listen(process.env.PORT || 4730));
 
 io.sockets.on('connection', function (socket) {
+    console.log('Client Connected');
     socket.emit('message', { action: 'connected' });
 });
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="RedditClone">
 <head>
 
     <title>InTeTestat</title>
@@ -14,17 +14,25 @@
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
-    <script src="/node_modules/socket.io/index.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+    <!---script src="/bower_components/socket.io-client/socket.io.js" ></script>-->
+    <script>
+        var socket = io.connect();
+    </script>
 
     <script src="core.js"></script>
     <script src="dataService.js"></script>
-    <script src="init.js"></script>  
-    
+    <script src="init.js"></script>
+    <script src="scripts/controllers/posts.controller.js"></script>
+    <script src="scripts/redditClone.js"></script>
+    <script src="scripts/services.js"></script>
+
 </head>
     <body>
+        <div ng-view></div>
         <script src="ui.js"></script>
 
-        <div class="container">
+        <!--<div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right" role="tablist">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
@@ -68,6 +76,6 @@
                 <p>&copy; Company 2014</p>
             </div>
 
-        </div>
+        </div>-->
     </body>
 </html>
