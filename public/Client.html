@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="RedditClone">
+<html ng-app="redditclone">
 <head>
 
     <title>InTeTestat</title>
@@ -9,13 +9,9 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
-    <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
-    <!---script src="/bower_components/socket.io-client/socket.io.js" ></script>-->
+    <!--<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>-->
+    <script src="/bower_components/socket.io-client/socket.io.js" ></script>
     <script>
         var socket = io.connect();
     </script>
@@ -29,8 +25,20 @@
 
 </head>
     <body>
-        <div ng-view></div>
+        <!--<div ng-view></div>-->
+        <div ng-controller="PostsController">
+            <ul>
+                <li ng-repeat="entry in entries">
+                    <span>{{entry.title}}</span>
+                    <p>{{entry.url}}</p>
+                </li>
+            </ul>
+        </div>
         <script src="ui.js"></script>
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="/bower_components/angular-route/angular-route.min.js"></script>
+        <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
         <!--<div class="container">
             <div class="header">

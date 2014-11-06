@@ -1,8 +1,15 @@
-angular.module('App', ['Services']);
+'use strict';
 
-angular.module('App').controller('PostsController', function($scope) {
-    $routeProvider.when('/posts', {
-        templateUrl: 'views/posts.html',
-        controller: 'posts.controller.js'
-    });
-})
+var redditclone = angular.module('redditclone',['ngRoute', 'ngResource'])
+    .config(function($routeProvider) {
+        $routeProvider
+            .when('/', {
+            templateUrl: 'views/posts.html',
+            controller: 'PostsController'
+        });
+        $routeProvider.otherwise({redirectTo: '/'});
+});
+
+redditclone.controller('rootController'), function ($scope){
+
+}
