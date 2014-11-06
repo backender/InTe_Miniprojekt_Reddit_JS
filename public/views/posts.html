@@ -1,2 +1,14 @@
 <h1>Posts</h1>
-        {{ name }}
+
+<ul>
+    <li ng-repeat="entry in entries">{{ entry.title }} {{entry.author}} : {{entry.url}}</li>
+</ul>
+
+<!--<div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right" role="tablist" ng-repeat="entry in entries">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            {{ entry.title }} {{entry.author}} : {{entry.url}}
+        </ul>
+    </div>
+</div>-->

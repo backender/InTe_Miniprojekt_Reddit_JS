@@ -5,7 +5,7 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource'])
         $routeProvider
             .when('/', {
             templateUrl: 'views/posts.html',
-            controller: 'PostsController'
+            controller: 'postController'
         });
         $routeProvider.otherwise({redirectTo: '/'});
 });

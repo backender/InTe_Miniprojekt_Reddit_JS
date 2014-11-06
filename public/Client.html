@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="RedditClone">
+<html ng-app="redditclone">
 <head>
 
     <title>InTeTestat</title>
@@ -10,30 +10,37 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
     <!--<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>-->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/socket.io-client/socket.io.js" ></script>
     <script>
         var socket = io.connect();
     </script>
 
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
     <script src="core.js"></script>
     <script src="dataService.js"></script>
     <script src="init.js"></script>
-    <script src="scripts/controllers/posts.controller.js"></script>
-    <script src="scripts/redditClone.js"></script>
-    <script src="scripts/services.js"></script>
 
 </head>
     <body>
+
+        <script src="ui.js"></script><!-- TODO: to delete? -->
+
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/posts.controller.js"></script>
+        <script src="scripts/services.js"></script>
+
         <div ng-view></div>
-        <script src="ui.js"></script>
-
-        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/bower_components/angular/angular.min.js"></script>
-        <script src="/bower_components/angular-route/angular-route.js"></script>
-        <script src="/bower_components/angular-resource/angular-resource.js"></script>
-        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
-        <div class="container">
+        <!--<div ng-controller="PostsController">
+            <ul>
+                <li ng-repeat="entry in entries">{{entry.title}}</li>
+            </ul>
+        </div>
+        <!--<div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right" role="tablist">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
@@ -41,7 +48,7 @@
                     <p>&copy; Company 2014</p>
                 </ul>
             </div>
-        </div>
+        </div>-->
         <!--<div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right" role="tablist">

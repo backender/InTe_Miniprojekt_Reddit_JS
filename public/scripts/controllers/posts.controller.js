@@ -1,9 +1,9 @@
-redditclone.module('RedditClone').controller('PostsController', function($scope, $http) {
+angular.module('redditclone').controller('postController', function($scope, $http) {
     console.log('Hello from the Frontpage Controller');
-    $scope.name = 'Paul';
 
-    $http.get('http://localhost/entries').
-        success(function(data) {
-            $scope.entries = data;
-        });
+    $http.get('http://localhost:4730/entries').
+            success(function(data) {
+                    $scope.entries = data;
+    });
+
 });
