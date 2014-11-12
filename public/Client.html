@@ -9,6 +9,8 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/jumbotron-narrow.css" rel="stylesheet">
+
 
     <!--<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>-->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -35,65 +37,30 @@
         <script src="scripts/controllers/posts.controller.js"></script>
         <script src="scripts/services.js"></script>
 
-        <div ng-view></div>
-        <!--<div ng-controller="PostsController">
-            <ul>
-                <li ng-repeat="entry in entries">{{entry.title}}</li>
-            </ul>
-        </div>
-        <!--<div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right" role="tablist">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    @@ -76,6 +75,6 @@ <h3 class="text-muted">Project name</h3>
-                    <p>&copy; Company 2014</p>
-                </ul>
-            </div>
-        </div>-->
-        <!--<div class="container">
+        <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right" role="tablist">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
                     <li role="presentation"><a href="#">About</a></li>
                     <li role="presentation"><a href="#">Contact</a></li>
                 </ul>
-                <h3 class="text-muted">Project name</h3>
+                <h3 class="text-muted">Reddit Clone</h3>
             </div>
 
             <div class="jumbotron">
-                <h1>Jumbotron heading</h1>
+                <h1>Posts</h1>
                 <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                 <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
             </div>
 
             <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>Subheading</h4>
-                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-                    <h4>Subheading</h4>
-                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-                    <h4>Subheading</h4>
-                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                </div>
-
-                <div class="col-lg-6">
-                    <h4>Subheading</h4>
-                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-                    <h4>Subheading</h4>
-                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-                    <h4>Subheading</h4>
-                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                </div>
+                <div ng-view></div>
             </div>
-
             <div class="footer">
-                <p>&copy; Company 2014</p>
+                <p>&copy; Juchli Marc, Loop Marcel, Wolf Lorenz</p>
             </div>
+        </div>
 
-        </div>-->
+
     </body>
 </html>
