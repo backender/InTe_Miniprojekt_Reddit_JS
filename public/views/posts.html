@@ -1,3 +1,13 @@
 <ul>
-    <li ng-repeat="entry in entries">{{ entry.title }} {{entry.author}} : {{entry.url}}</li>
+    <li ng-repeat="entry in entries">{{ entry.title }} {{entry.author}} : {{entry.url}}
+
+    <ul>
+        <li ng-repeat="comment_ in entry.comments">
+            {{comment_.text}}
+            {{comment_.author}}
+            {{comment_.createTime}}
+        </li>
+    </ul>
+
+    </li>
 </ul>

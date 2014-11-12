@@ -33,9 +33,28 @@ var comments = [];
 
 //sample data
 entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+
 var comment = new Comment(0, "TestComment", "Author");
+var comment2 = new Comment(1, "WhatUp?", "Hans Noetig");
+
 comments.push(comment);
 entries[0].comments.push(comment);
+entries[1].comments.push(comment2);
+entries[2].comments.push(comment);
+entries[3].comments.push(comment2);
+entries[4].comments.push(comment);
+entries[5].comments.push(comment2);
+entries[6].comments.push(comment);
+
+
+
 
 //default user
 users.push(new User(users.length, "a", "a") );
