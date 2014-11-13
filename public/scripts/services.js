@@ -1,5 +1,6 @@
-angular.module('Services', []).
-    factory('Socket', function($rootScope) {
+var services = angular.module('Services', ['ngResource']);
+
+services.factory('Socket', function($rootScope) {
         var socket = io.connect();
         return {
             on: function(eventName, callback) {
@@ -23,10 +24,12 @@ angular.module('Services', []).
                         }
                     });
                 });
-            },
-            emitAndListen: function(eventName, data, callback) {
-                this.emit(eventName, data, callback);
-                this.on(eventName, callback);
             }
         };
     });
+
+services.factory('Posts', ['$resource', function($resource) {
+    return $resource('/entry/:id', {id: '@id'}, {
+        getAll: {method: 'GET', isArray: true, url: '/entries'}
+    });
+}]);
