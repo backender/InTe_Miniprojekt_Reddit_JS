@@ -1,16 +1,15 @@
-angular.module('redditclone').controller('postController', function($scope, Socket, Posts) {
+angular.module('redditclone').controller('postController', function($scope, Socket, Post) {
 
     console.log('Hello from the Frontpage Controller');
 
     //$http.get('http://localhost:4730/entries').
-     //       success(function(data) {
-     //               $scope.entries = data;
+    //       success(function(data) {
+    //               $scope.entries = data;
     ///); --> Services
 
-    $scope.entries = Posts.getAll();
+    $scope.entries = Post.query();
 
-    Socket.on('AddLink'), function(name){
+    Socket.on('AddLink'), function (name) {
         console.log('New Links was added');
     }
-
 });

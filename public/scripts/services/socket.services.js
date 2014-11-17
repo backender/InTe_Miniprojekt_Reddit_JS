@@ -28,8 +28,15 @@ services.factory('Socket', function($rootScope) {
         };
     });
 
-services.factory('Posts', ['$resource', function($resource) {
+services.factory('Post', function($resource) {
     return $resource('/entry/:id', {id: '@id'}, {
-        getAll: {method: 'GET', isArray: true, url: '/entries'}
+        query: {method: 'GET', isArray: true, url: '/entries'}
     });
-}]);
+});
+
+services.factory('User', function($resource){
+    return $resource('/users', {}, {
+        register: { method: 'POST', url: '/register' },
+        login: { method: 'POST', url: '/login' }
+    });
+});
