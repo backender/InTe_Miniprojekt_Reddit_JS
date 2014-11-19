@@ -35,7 +35,8 @@
 
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/create.controller.js"></script>
-        <script src="scripts/controllers/posts.controller.js"></script>
+        <script src="scripts/controllers/posts.detail.controller.js"></script>
+        <script src="scripts/controllers/posts.index.controller.js"></script>
         <script src="scripts/controllers/register.controller.js"></script>
         <script src="scripts/controllers/login.controller.js"></script>
         <script src="scripts/controllers/header.controller.js"></script>
@@ -58,9 +59,7 @@
                 {{ user.username }}
             </div>
 
-            <div class="jumbotron">
-                <p><a class="btn btn-lg btn-success" href="#/register" role="button">Sign up today</a></p>
-            </div>
+            <!--- TODO: View abhängiger, dynamischer Titel -->
 
             <div class="row marketing">
                 <div ng-view></div>

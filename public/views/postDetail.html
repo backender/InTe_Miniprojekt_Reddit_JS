@@ -1,1 +1,18 @@
-Post Detail
+<div class="jumbotron">
+    <h1>Post Detail</h1>
+</div>
+<ul>
+    <li >{{ post.title }} {{post.author}} : {{post.url}}
+
+        <ul>
+            <li ng-repeat="comment_ in post.comments">
+                {{comment_.text}}
+                {{comment_.author}}
+                {{comment_.createTime}}
+            </li>
+        </ul>
+
+    </li>
+</ul>
+
+<a href="#/">Zurück</a>

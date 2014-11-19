@@ -7,7 +7,7 @@ angular.module('redditclone').controller('postIndexController', function($scope,
     //               $scope.entries = data;
     ///); --> Services
 
-    $scope.entries = Post.query();
+    $scope.posts = Post.query();
 
     Socket.on('AddLink'), function (name) {
         console.log('New Links was added');

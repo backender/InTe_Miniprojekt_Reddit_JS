@@ -6,7 +6,7 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Servic
             templateUrl: 'views/postIndex.html',
             controller: 'postIndexController'
         });
-        $routeProvider.when('/posts/:postId', {
+        $routeProvider.when('/posts/:id', {
             templateUrl: 'views/postDetail.html',
             controller: 'postDetailController'
         });
