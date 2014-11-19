@@ -1,12 +1,12 @@
-angular.module('redditclone').controller('registerController', function($scope, $location, User) {
+angular.module('redditclone').controller('loginController', function($scope, $location, User) {
 
-    $scope.register = function(credentials){
+    $scope.login = function(credentials){
 
         $scope.user = new User();
         $scope.user.name = credentials.username;
         $scope.user.password = credentials.password;
 
-        $scope.user.$register(function(res){
+        $scope.user.$login(function(res){
             $location.path('/');
         },function(error){
             console.log(error);

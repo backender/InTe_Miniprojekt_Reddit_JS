@@ -94,30 +94,32 @@ app.get('/login', function (req, res) {
 });
  
  app.post('/login', function (req, res) {
-    var post = req.body;  
-	var user = findUser(post.name);	 
+     var post = req.body;
+     var user = findUser(post.name);
 	if( !!user && post.password == user.password)
 	{		
 		req.session.user_id = user.id;		
 		res.json(true);		
 		return;
-	}	
-	res.json(false);
+	}
+    res.send(401, 'Wrong credentials.');
 });
 
  app.post('/register', function(req, res) {
      var post = req.body;
      
      if (typeof(post.name) != "string" || typeof(post.password) != "string") {
-         res.json(false);
+         res.send(403, 'Please provide username and password as string.');
          return;
      }
      
      if (findUser(post.name)) {
-         res.json(false);
+         res.send(403, 'User already exists.');
          return;
      }
-     users.push(new User(users.length, post.name, post.password));
+     var user = new User(users.length, post.name, post.password);
+     users.push(user);
+     req.session.user_id = user.id;
      res.json(true);
  });
  
