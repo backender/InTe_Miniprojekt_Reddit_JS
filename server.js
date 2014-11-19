@@ -109,12 +109,12 @@ app.get('/login', function (req, res) {
      var post = req.body;
      
      if (typeof(post.name) != "string" || typeof(post.password) != "string") {
-         res.json(false);
+         res.send(403, 'Please provide username and password as string.');
          return;
      }
      
      if (findUser(post.name)) {
-         res.json(false);
+         res.send(403, 'User already exists.');
          return;
      }
      users.push(new User(users.length, post.name, post.password));
