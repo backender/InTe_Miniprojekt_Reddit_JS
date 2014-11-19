@@ -1,11 +1,11 @@
 <h1>Register</h1>
 
-<form name="loginForm" ng-submit="login(credentials)" novalidate>
+<form name="loginForm" ng-submit="register(credentials)" novalidate>
     <label for="username">Username:</label>
     <input type="text" id="username" ng-model="credentials.username">
     <label for="password">Password:</label>
     <input type="password" id="password"  ng-model="credentials.password">
-    <button type="submit">Register</button>
+    <button class="btn btn-success" type="submit">Register</button>
 </form>
 
-<alert ng-show="userAlreadyExists">User existiert bereits</alert>
+<alert ng-show="error != null">{{error.data}}</alert>
