@@ -94,15 +94,15 @@ app.get('/login', function (req, res) {
 });
  
  app.post('/login', function (req, res) {
-    var post = req.body;  
-	var user = findUser(post.name);	 
+     var post = req.body;
+     var user = findUser(post.name);
 	if( !!user && post.password == user.password)
 	{		
 		req.session.user_id = user.id;		
 		res.json(true);		
 		return;
-	}	
-	res.json(false);
+	}
+    res.send(401, 'Wrong credentials.');
 });
 
  app.post('/register', function(req, res) {

@@ -10,6 +10,10 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Servic
             templateUrl: 'views/register.html',
             controller: 'registerController'
         });
+        $routeProvider.when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'loginController'
+        });
         $routeProvider.otherwise({redirectTo: '/'});
 });
 
