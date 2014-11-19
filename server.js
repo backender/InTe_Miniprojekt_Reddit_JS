@@ -117,7 +117,9 @@ app.get('/login', function (req, res) {
          res.send(403, 'User already exists.');
          return;
      }
-     users.push(new User(users.length, post.name, post.password));
+     var user = new User(users.length, post.name, post.password);
+     users.push(user);
+     req.session.user_id = user.id;
      res.json(true);
  });
  
