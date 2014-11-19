@@ -30,7 +30,8 @@ services.factory('Socket', function($rootScope) {
 
 services.factory('Post', function($resource) {
     return $resource('/entry/:id', {id: '@id'}, {
-        query: {method: 'GET', isArray: true, url: '/entries'}
+        query: {method: 'GET', isArray: true, url: '/entries'},
+        submit:{method: 'POST', url: '/entry'}
     });
 });
 
