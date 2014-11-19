@@ -1,6 +1,6 @@
-angular.module('redditclone').controller('postIndexController', function($scope, Socket, Post) {
+angular.module('redditclone').controller('postIndexController', function($scope, Page, Socket, Post){
 
-    console.log('Hello from the Frontpage Controller');
+    Page.setTitle('Post Index');
 
     //$http.get('http://localhost:4730/entries').
     //       success(function(data) {

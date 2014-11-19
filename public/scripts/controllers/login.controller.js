@@ -1,4 +1,6 @@
-angular.module('redditclone').controller('loginController', function($scope, $location, User) {
+angular.module('redditclone').controller('loginController', function($scope, Page, $location, User) {
+
+    Page.setTitle('Login');
 
     $scope.login = function(credentials){
 

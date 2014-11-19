@@ -1,4 +1,4 @@
-var services = angular.module('Services', ['ngResource']);
+var services = angular.module('SocketService', []);
 
 services.factory('Socket', function($rootScope) {
         var socket = io.connect();

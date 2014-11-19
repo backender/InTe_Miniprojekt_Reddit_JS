@@ -1,6 +1,7 @@
-angular.module('redditclone').controller('createController', function($scope, Socket, Post) {
+angular.module('redditclone').controller('postCreateController', function($scope, Page, Socket, Post ) {
     console.log('Hello from the create Controller');
 
+    Page.setTitle('Create Post')
 
     $scope.submit = function(post){
 

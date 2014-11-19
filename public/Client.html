@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="redditclone">
+<html ng-app="redditclone" ng-controller="mainController">
 <head>
 
     <title>InTeTestat</title>
@@ -34,12 +34,12 @@
         <script src="ui.js"></script><!-- TODO: to delete? -->
 
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/create.controller.js"></script>
+        <script src="scripts/controllers/post.create.controller.js"></script>
         <script src="scripts/controllers/posts.detail.controller.js"></script>
         <script src="scripts/controllers/posts.index.controller.js"></script>
         <script src="scripts/controllers/register.controller.js"></script>
         <script src="scripts/controllers/login.controller.js"></script>
-        <script src="scripts/controllers/header.controller.js"></script>
+        <script src="scripts/controllers/main.controller.js"></script>
 
 
         <script src="scripts/services/common.services.js"></script>
@@ -47,7 +47,7 @@
         <script src="scripts/services/socket.services.js"></script>
 
         <div class="container">
-            <div class="header" ng-controller="headerController">
+            <div class="header">
                 <ul class="nav nav-pills pull-right" role="tablist">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
                     <li role="presentation"><a href="#/login">Login</a></li>
@@ -56,10 +56,11 @@
 
                 </ul>
                 <h3 class="text-muted">Reddit Clone</h3>
-                {{ user.username }}
-            </div>
 
-            <!--- TODO: View abhängiger, dynamischer Titel -->
+                <div class="jumbotron">
+                    <h1 >{{ title }}</h1>
+                </div>
+            </div>
 
             <div class="row marketing">
                 <div ng-view></div>

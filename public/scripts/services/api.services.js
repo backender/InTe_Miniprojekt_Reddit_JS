@@ -1,4 +1,4 @@
-var services = angular.module('Services', ['ngResource']);
+var services = angular.module('ApiService', ['ngResource']);
 
 services.factory('Post', function($resource) {
     return $resource('/entry/:id', {id: '@id'}, {
@@ -6,7 +6,7 @@ services.factory('Post', function($resource) {
     });
 });
 
-services.factory('User', function($resource){
+redditclone.factory('User', function($resource){
     return $resource('/users', {}, {
         register: { method: 'POST', url: '/register' },
         login: { method: 'POST', url: '/login' }
