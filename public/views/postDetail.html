@@ -1,18 +1,25 @@
 <div class="jumbotron">
     <h1>Post Detail</h1>
 </div>
-<ul>
-    <li >{{ post.title }} {{post.author}} : {{post.url}}
+<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="back()">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Zurück
+</button>
+<br><br>
+<div class="panel panel-info" class="bg-primary">
+    <div class="panel-heading">
+        <h4><a ng-href="{{post.url}}" >{{ post.title }}</a></h4>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
+        <a ng-href="#/posts/{{post.id}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}</a>
+    </div>
 
-        <ul>
-            <li ng-repeat="comment_ in post.comments">
-                {{comment_.text}}
-                {{comment_.author}}
-                {{comment_.createTime}}
-            </li>
-        </ul>
+    <table class="table">
+        <tbody>
+            <tr ng-repeat="comment_ in post.comments">
+                <td>{{comment_.text}}<br>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment_.author}}<br>
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment_.createTime}}</td>
+            </tr>
+        </tbody>
+    </table>
 
-    </li>
-</ul>
-
-<a href="#/">Zurück</a>
+</div>
