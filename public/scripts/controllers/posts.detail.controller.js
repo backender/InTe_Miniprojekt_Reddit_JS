@@ -1,4 +1,4 @@
-angular.module('redditclone').controller('postController', function($scope, Socket, Post) {
+angular.module('redditclone').controller('postDetailController', function($scope, Socket, Post) {
 
     console.log('Hello from the Frontpage Controller');
 

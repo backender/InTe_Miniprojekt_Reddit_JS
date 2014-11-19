@@ -2,9 +2,13 @@
 
 var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Services'])
     .config(function($routeProvider) {
-        $routeProvider.when('/', {
-            templateUrl: 'views/posts.html',
-            controller: 'postController'
+        $routeProvider.when('/posts', {
+            templateUrl: 'views/postIndex.html',
+            controller: 'postIndexController'
+        });
+        $routeProvider.when('/posts/:postId', {
+            templateUrl: 'views/postDetail.html',
+            controller: 'postDetailController'
         });
         $routeProvider.when('/create', {
             templateUrl: 'views/create.html',
@@ -18,7 +22,8 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Servic
             templateUrl: 'views/login.html',
             controller: 'loginController'
         });
-        $routeProvider.otherwise({redirectTo: '/'});
+
+        $routeProvider.otherwise({redirectTo: '/posts'});
 });
 
 redditclone.controller('rootController'), function ($scope){
