@@ -1,6 +1,6 @@
 'use strict';
 
-var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'CommonService', 'ApiService', 'SocketService'])
+var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'CommonService', 'ApiService', 'SocketService','cgNotify'])
     .config(function($routeProvider) {
         $routeProvider.when('/posts', {
             templateUrl: 'views/postIndex.html',
@@ -24,4 +24,5 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Common
         });
 
         $routeProvider.otherwise({redirectTo: '/posts'});
+
 });
