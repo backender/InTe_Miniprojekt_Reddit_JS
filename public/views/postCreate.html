@@ -1,7 +1,7 @@
 <form name="createForm" class="form-horizontal">
 
-    <input type="text" id="title" ng-model="post.title" class="form-control" placeholder="Title">
-    <input type="text" id="url" ng-model="post.url" class="form-control" placeholder="URL">
+    <input type="text" id="title" ng-model="post.title" class="form-control" placeholder="Title", required="true">
+    <input type="text" id="url" ng-model="post.url" class="form-control" placeholder="URL", required="true">
 
     <button ng-click="submit(post)" class="btn btn-primary btn-default">Submit</button>
 </form>
