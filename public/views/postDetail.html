@@ -13,18 +13,29 @@
         <tbody>
             <tr>
                 <td colspan="2">
-                    <textarea ng-model="comment.text"></textarea>
-                    <input type="button" value="Submit Comment" ng-click="submit(comment)" />
+                    <button type="button" id="showNewCommentForm" class="btn btn-default">New Comment</button>
+                    <br>
+                    <br>
+                    <form class="form-inline">
+                        <div id="newCommentForm" class="alert alert-info" >
+                            <button type="button" class="close" id="closeNewCommentForm" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                           <div class="input-group">
+                               <div class="input-group-addon"><span class="glyphicon glyphicon-comment"></span></div>
+                               <input class="form-control " type="text" ng-model="comment.text" />
+                           </div>
+                            <button type="button"class="btn btn-success" ng-click="submit(comment)" >Submit Comment</button>
+                        </div>
+                    </form>
                 </td>
             </tr>
             <tr ng-repeat="comment in post.comments">
-                <td width="80" style="vertical-align: middle;" align="center">
-                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-                    {{ comment.rating.value }}
-                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                <td width="80" style="vertical-align: middle; font-size: 18px;" align="center">
+                    <a ng-click="upVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-up" style="color: green; " aria-hidden="true"></span></a>
+                    <strong>{{ comment.rating.value }}</strong>
+                    <a ng-click="downVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-down" style="color: red" aria-hidden="true"></span></a
                 </td>
                 <td>
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{comment.text}}<br><br>
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <strong>{{comment.text}}</strong><br><br>
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment.author}}<br>
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment.createTime}}
                 </td>
