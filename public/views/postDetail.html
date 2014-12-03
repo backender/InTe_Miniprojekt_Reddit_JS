@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="list-group" >
         <a ng-href="{{post.url}}" class="list-group-item active">
-            <h4 class="list-group-item-heading">{{ post.title }}</h4>
+            <h4 class="list-group-item-heading">Comments of {{ post.title }}</h4>
             <p class="list-group-item-text">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}
@@ -29,13 +29,13 @@
                 </td>
             </tr>
             <tr ng-repeat="comment in post.comments">
-                <td width="80" style="vertical-align: middle; font-size: 18px;" align="center">
+                <td width="80" style="vertical-align: middle; font-size: 17px;" align="center">
                     <a ng-click="upVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-up" style="color: green; " aria-hidden="true"></span></a>
-                    <strong>{{ comment.rating.value }}</strong>
+                    {{ comment.rating.value }}
                     <a ng-click="downVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-down" style="color: red" aria-hidden="true"></span></a
                 </td>
                 <td>
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <strong>{{comment.text}}</strong><br><br>
+                    <h4 class="list-group-item-heading">{{ comment.text}}</h4>
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment.author}}<br>
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment.createTime}}
                 </td>
