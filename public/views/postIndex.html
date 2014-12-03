@@ -1,6 +1,22 @@
-
 <button type="button" id="showNewPostForm" class="btn btn-info">New Post</button>
 <br>
+<br>
+<form name="createForm" class="form-inline">
+    <div id="newPostForm" class="alert alert-info" >
+        <button type="button" class="close" id="closeNewPostForm" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class=" glyphicon glyphicon-list"></span></div>
+                <input type="text" id="title" ng-model="post.title" class="form-control" placeholder="Enter Title" required="true">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon"><span class=" glyphicon glyphicon-globe"></span></div>
+                <input type="text" id="url" ng-model="post.url" class="form-control" placeholder="Enter URL" required="true">
+            </div>
+            <button ng-click="submit(post)" class="btn btn-primary btn-default">Submit</button>
+        </div>
+    </div>
+</form>
 <br>
 <div class="panel panel-default">
     <div class="list-group-item active">
