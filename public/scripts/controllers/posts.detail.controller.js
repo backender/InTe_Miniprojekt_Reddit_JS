@@ -1,4 +1,4 @@
-angular.module('redditclone').controller('postDetailController', function($scope, Page, Post, Comment, $routeParams, Socket) {
+angular.module('redditclone').controller('postDetailController', function($scope, Page, Post, Comment, $routeParams, notify, Socket) {
 
     Page.setTitle('Post Detail');
 
@@ -26,6 +26,7 @@ angular.module('redditclone').controller('postDetailController', function($scope
     Socket.on('message', function(msg){
         if (msg.action == 'AddComment'){
             $scope.post.comments.push(msg.data);
+            notify({message: 'New comment created'});
         }else if(msg.action == 'CommentRated'){
             var comment = {};
             angular.forEach($scope.post.comments, function(_comment, key) {
