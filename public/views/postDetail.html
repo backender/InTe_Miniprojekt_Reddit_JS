@@ -3,7 +3,8 @@
         <a ng-href="{{post.url}}" class="list-group-item active">
             <h4 class="list-group-item-heading">Comments of {{ post.title }}</h4>
             <p class="list-group-item-text">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{post.createTime | date: 'medium'}} &nbsp; | &nbsp;
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp; | &nbsp;
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}
             </p>
         </a>
@@ -12,8 +13,8 @@
     <table class="table table-hover">
         <tbody>
             <tr>
-                <td colspan="2">
-                    <button type="button" id="showNewCommentForm" class="btn btn-default">New Comment</button>
+                <td colspan="2" ng-show="$root.auth">
+                    <button type="button"  id="showNewCommentForm" class="btn btn-default">New Comment</button>
                     <br>
                     <br>
                     <form class="form-inline">
@@ -29,7 +30,7 @@
                 </td>
             </tr>
             <tr ng-repeat="comment in post.comments">
-                <td width="80" style="vertical-align: middle; font-size: 17px;" align="center">
+                <td ng-show="$root.auth" width="80" style="vertical-align: middle; font-size: 17px;" align="center">
                     <a ng-click="upVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-up" style="color: green; " aria-hidden="true"></span></a>
                     {{ comment.rating.value }}
                     <a ng-click="downVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-down" style="color: red" aria-hidden="true"></span></a
@@ -37,7 +38,7 @@
                 <td>
                     <h4 class="list-group-item-heading">{{ comment.text}}</h4>
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment.author}}<br>
-                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment.createTime}}
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment.createTime | date: 'medium'}}
                 </td>
             </tr>
         </tbody>
