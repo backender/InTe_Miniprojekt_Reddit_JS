@@ -1,4 +1,4 @@
-angular.module('redditclone').controller('mainController', function($scope, $rootScope, Page, $location) {
+angular.module('redditclone').controller('mainController', function($scope, $rootScope, Page, $location,notify) {
 
     Page.setTitle('Home');
 
@@ -10,4 +10,6 @@ angular.module('redditclone').controller('mainController', function($scope, $roo
     $scope.backToHome = function(){
         $location.path('/');
     }
+
+    notify.config({duration:4000})
 });

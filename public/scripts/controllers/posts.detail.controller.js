@@ -29,7 +29,7 @@ angular.module('redditclone').controller('postDetailController', function($scope
             notify({message: 'New comment created'});
         }else if(msg.action == 'CommentRated'){
             var comment = {};
-            angular.forEach($scope.post.comments, function(_comment, key) {
+            angular.forEach($scope.post.comments, function(_comment) {
                 if(_comment.id == msg.data.id){
                     comment = _comment;
                 }
