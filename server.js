@@ -149,12 +149,12 @@ app.get('/entry/:id', function(req, res) {
 
 app.post('/entry/:id/up', checkAuth, function (req, res) {
     res.json(entries[req.params.id].rating._up(req.session.user_id));
-    io.sockets.emit('message', { action: "Rated" });
+    io.sockets.emit('message', { action: "EntryRated" });
 });
 
 app.post('/entry/:id/down', checkAuth, function (req, res) {
     res.json(entries[req.params.id].rating._down(req.session.user_id));
-    io.sockets.emit('message', { action: "Rated" });
+    io.sockets.emit('message', { action: "EntryRated" });
 });
 
 app.post('/entry/:id/comment', checkAuth, function (req, res) {
@@ -164,7 +164,8 @@ app.post('/entry/:id/comment', checkAuth, function (req, res) {
     var entry = entries[req.params.id];
     entry.comments.push(newComment);
     res.json(newComment);
-    io.sockets.emit('message', { action: "AddComment" });
+    io.sockets.emit('message', { action: "AddComment", data: newComment});
+
 });
 
 app.post('/comment/:id/', checkAuth, function (req, res) {
@@ -179,12 +180,12 @@ app.post('/comment/:id/', checkAuth, function (req, res) {
 
 app.post('/comment/:id/up', checkAuth, function (req, res) {
     res.json(comments[req.params.id].rating._up(req.session.user_id));
-    io.sockets.emit('message', { action: "Rated" });
+    io.sockets.emit('message', { action: "CommentRated", data: comments[req.params.id] });
 });
 
 app.post('/comment/:id/down', checkAuth, function (req, res) {
     res.json(comments[req.params.id].rating._down(req.session.user_id));
-    io.sockets.emit('message', { action: "Rated" });
+    io.sockets.emit('message', { action: "CommentRated", data: comments[req.params.id] });
 });
 
 app.post('/logout', function (req, res) {
