@@ -3,6 +3,7 @@ angular.module('redditclone').controller('postIndexController', function($scope,
     Page.setTitle('Post Index');
 
     $scope.posts = Post.query();
+    $scope.posts.sort();
 
     Socket.on('AddLink', function (name) {
         console.log('New Link was added');

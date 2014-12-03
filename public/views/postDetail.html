@@ -29,7 +29,7 @@
                     </form>
                 </td>
             </tr>
-            <tr ng-repeat="comment in post.comments">
+            <tr ng-repeat="comment in post.comments | orderBy:-createTime:true">
                 <td ng-show="$root.auth" width="80" style="vertical-align: middle; font-size: 17px;" align="center">
                     <a ng-click="upVoteComment(comment)" href="" ><span class="glyphicon glyphicon-chevron-up" style="color: green; " aria-hidden="true"></span></a>
                     {{ comment.rating.value }}
