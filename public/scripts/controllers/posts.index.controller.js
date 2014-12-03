@@ -1,4 +1,4 @@
-angular.module('redditclone').controller('postIndexController', function($scope, Page, Socket, Post, notify, $location){
+angular.module('redditclone').controller('postIndexController', function($scope, Page, Socket, Post, notify){
 
     Page.setTitle('Post Index');
 
@@ -23,13 +23,7 @@ angular.module('redditclone').controller('postIndexController', function($scope,
         $scope.post.url = post.url;
 
         $scope.post.$save(function(res){
-            notify({message: 'Post erstellt'});
-
-            //TODO: nicht Seite neu laden, sonern async
-            $location.path('/');
-
             $("#newPostForm").hide();
-
         }, function(error){
             notify({message: 'Beim erstellen des Post ist ein Fehler aufgetreten  (Code:' + error.status + ')'});
             console.log(error);
@@ -49,7 +43,18 @@ angular.module('redditclone').controller('postIndexController', function($scope,
 
     Socket.on('message',function(msg) {
         if((msg.action) == 'AddLink'){
+            notify({message: 'Post created'});
             $scope.posts.push((msg.data));
+        }
+
+        if((msg.action) == 'EntryRated'){
+            var post = {};
+            angular.forEach($scope.posts, function(_post) {
+                if(_post.id == msg.data.id){
+                    post = _post;
+                }
+            });
+            post.rating.value = msg.data.rating.value;
         }
     });
 

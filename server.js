@@ -149,7 +149,7 @@ app.get('/entry/:id', function(req, res) {
 
 app.post('/entry/:id/up', checkAuth, function (req, res) {
     res.json(entries[req.params.id].rating._up(req.session.user_id));
-    io.sockets.emit('message', { action: "EntryRated" });
+    io.sockets.emit('message', { action: "EntryRated", data: entries[req.params.id] });
 });
 
 app.post('/entry/:id/down', checkAuth, function (req, res) {
