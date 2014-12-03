@@ -18,6 +18,10 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Common
             templateUrl: 'views/login.html',
             controller: 'loginController'
         });
+        $routeProvider.when('/logout', {
+            templateUrl: 'views/login.html',
+            controller: 'logoutController'
+        });
 
         $routeProvider.otherwise({redirectTo: '/posts'});
 
