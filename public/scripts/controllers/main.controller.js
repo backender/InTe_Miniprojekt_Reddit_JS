@@ -9,7 +9,7 @@ angular.module('redditclone').controller('mainController', function($scope, $roo
 
     $scope.backToHome = function(){
         $location.path('/');
-    }
+    };
 
-    notify.config({duration:4000})
+    notify.config({duration:4000});
 });

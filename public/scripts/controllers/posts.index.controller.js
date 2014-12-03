@@ -38,7 +38,7 @@ angular.module('redditclone').controller('postIndexController', function($scope,
 
     $( "#closeNewPostForm").click(function(){
         $( "#newPostForm").hide("blind");
-    })
+    });
 
     $( "#newPostForm" ).hide();
 
