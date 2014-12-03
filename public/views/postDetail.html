@@ -9,19 +9,24 @@
         </a>
     </div>
 
-    <table class="table">
+    <table class="table table-hover">
         <tbody>
             <tr>
-                <td>
+                <td colspan="2">
                     <textarea ng-model="comment.text"></textarea>
                     <input type="button" value="Submit Comment" ng-click="submit(comment)" />
                 </td>
             </tr>
-            <tr ng-repeat="comment_ in post.comments">
+            <tr ng-repeat="comment in post.comments">
+                <td width="80" style="vertical-align: middle;" align="center">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    {{ comment.rating.value }}
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </td>
                 <td>
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{comment_.text}}<br><br>
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment_.author}}<br>
-                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment_.createTime}}
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{comment.text}}<br><br>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment.author}}<br>
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment.createTime}}
                 </td>
             </tr>
         </tbody>
