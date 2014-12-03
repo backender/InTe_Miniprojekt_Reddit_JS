@@ -8,6 +8,14 @@ angular.module('redditclone').controller('postIndexController', function($scope,
         console.log('New Link was added');
     });
 
+    $scope.upVotePost = function(post){
+        Post.upVote({ id : post.id });
+    };
+
+    $scope.downVotePost = function(post){
+        Post.downVote({ id : post.id });
+    };
+
     $scope.submit = function(post){
 
         $scope.post = new Post();

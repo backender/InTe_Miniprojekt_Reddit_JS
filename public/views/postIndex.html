@@ -1,4 +1,3 @@
-
 <button type="button" id="showNewPostForm" class="btn btn-info">New Post</button>
 <br>
 <br>
@@ -11,9 +10,9 @@
         <tbody>
                 <tr ng-repeat="post in posts">
                     <td width="80" style="vertical-align: middle;" align="center">
-                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                        <a ng-click="upVotePost(post)" href=""><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
                         {{ post.rating.value }}
-                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        <a ng-click="downVotePost(post)" href=""><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                     </td>
 
                     <td>

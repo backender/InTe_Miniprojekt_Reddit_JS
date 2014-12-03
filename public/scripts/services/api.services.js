@@ -2,7 +2,10 @@ var services = angular.module('ApiService', ['ngResource']);
 
 services.factory('Post', function($resource) {
     return $resource('/entry/:id', {id: '@id'}, {
-        query: {method: 'GET', isArray: true, url: '/entries'}
+        query: { method: 'GET', isArray: true, url : '/entries'},
+        upVote:{ method: 'POST', url : '/entry/:id/up'},
+        downVote:{ method: 'POST', url :'/entry/:id/down'},
+        submit:{ method: 'POST', url: '/entry'}
     });
 });
 
