@@ -1,28 +1,33 @@
-<button type="button" id="showNewPostForm" class="btn btn-default">New Post</button>
+
+<button type="button" id="showNewPostForm" class="btn btn-info">New Post</button>
 <br>
 <br>
-<form name="createForm" class="form-inline">
-    <div id="newPostForm" class="alert alert-info" >
-        <button type="button" class="close" id="closeNewPostForm" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class=" glyphicon glyphicon-list"></span></div>
-                <input type="text" id="title" ng-model="post.title" class="form-control" placeholder="Enter Title" required="true">
-            </div>
-            <div class="input-group">
-                <div class="input-group-addon"><span class=" glyphicon glyphicon-globe"></span></div>
-                <input type="text" id="url" ng-model="post.url" class="form-control" placeholder="Enter URL" required="true">
-            </div>
-            <button ng-click="submit(post)" class="btn btn-primary btn-default">Submit</button>
-        </div>
+<div class="panel panel-default">
+    <div class="list-group-item active">
+        <h4>Posts</h4>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
     </div>
-</form>
-<div class="list-group" ng-repeat="post in posts" >
-    <a href="#/posts/{{post.id}}" class="list-group-item">
-        <h4 class="list-group-item-heading">{{ post.title }}</h4>
-        <p class="list-group-item-text">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
-            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}
-        </p>
-    </a>
+    <table class="table table-hover">
+        <tbody>
+                <tr ng-repeat="post in posts">
+                    <td width="80" style="vertical-align: middle;" align="center">
+                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                        {{ post.rating.value }}
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    </td>
+
+                    <td>
+                        <h4 class="list-group-item-heading">{{ post.title }}</h4>
+                        <p class="list-group-item-text">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
+                            <a href="#/posts/{{post.id}}">
+                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    </div>
 </div>
+
