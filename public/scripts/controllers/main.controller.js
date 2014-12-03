@@ -1,4 +1,4 @@
-angular.module('redditclone').controller('mainController', function($scope, Page, $location) {
+angular.module('redditclone').controller('mainController', function($scope, $rootScope, Page, $location) {
 
     Page.setTitle('Home');
 

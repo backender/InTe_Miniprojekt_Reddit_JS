@@ -8,7 +8,9 @@ services.factory('Post', function($resource) {
 
 services.factory('Comment', function($resource) {
     return $resource('/comment/:id', {id: '@id'}, {
-        save : { method : 'POST', url : '/entry/:parentId/comment' }
+        save : { method : 'POST', url : '/entry/:parentId/comment' },
+        upVote : { method : 'POST', url : '/comment/:id/up'},
+        downVote : { method : 'POST', url : '/comment/:id/down'}
     });
 });
 
