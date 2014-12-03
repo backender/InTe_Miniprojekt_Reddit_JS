@@ -10,10 +10,6 @@ var redditclone = angular.module('redditclone',['ngRoute', 'ngResource', 'Common
             templateUrl: 'views/postDetail.html',
             controller: 'postDetailController'
         });
-        $routeProvider.when('/create', {
-            templateUrl: 'views/postCreate.html',
-            controller: 'postCreateController'
-        });
         $routeProvider.when('/register', {
             templateUrl: 'views/register.html',
             controller: 'registerController'

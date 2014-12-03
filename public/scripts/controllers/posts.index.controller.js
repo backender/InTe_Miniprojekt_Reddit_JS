@@ -1,15 +1,42 @@
-angular.module('redditclone').controller('postIndexController', function($scope, Page, Socket, Post){
+angular.module('redditclone').controller('postIndexController', function($scope, Page, Socket, Post, notify, $location){
 
     Page.setTitle('Post Index');
 
-    //$http.get('http://localhost:4730/entries').
-    //       success(function(data) {
-    //               $scope.entries = data;
-    ///); --> Services
-
     $scope.posts = Post.query();
 
-    Socket.on('AddLink'), function (name) {
-        console.log('New Links was added');
-    }
+    Socket.on('AddLink', function (name) {
+        console.log('New Link was added');
+    });
+
+    $scope.submit = function(post){
+
+        $scope.post = new Post();
+        $scope.post.title = post.title;
+        $scope.post.url = post.url;
+
+        $scope.post.$save(function(res){
+            notify({message: 'Post erstellt'});
+
+            //TODO: nicht Seite neu laden, sonern async
+            $location.path('/');
+
+            $("#newPostForm").hide();
+
+        }, function(error){
+            notify({message: 'Beim erstellen des Post ist ein Fehler aufgetreten  (Code:' + error.status + ')'});
+            console.log(error);
+            $scope.error = error;
+        })
+    };
+
+    $( "#showNewPostForm" ).click(function() {
+        $("#newPostForm").show("blind");
+    });
+
+    $( "#closeNewPostForm").click(function(){
+        $( "#newPostForm").hide("blind");
+    })
+
+    $( "#newPostForm" ).hide();
+
 });
