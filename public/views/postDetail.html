@@ -1,23 +1,32 @@
-<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="backToHome()">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Zurück
-</button>
-<br>
-<br>
-<div class="panel panel-info" class="bg-primary">
-    <div class="panel-heading">
-        <h4><a ng-href="{{post.url}}" >{{ post.title }}</a></h4>
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
-        <a ng-href="#/posts/{{post.id}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}</a>
+<div class="panel panel-default">
+    <div class="list-group" >
+        <a ng-href="{{post.url}}" class="list-group-item active">
+            <h4 class="list-group-item-heading">{{ post.title }}</h4>
+            <p class="list-group-item-text">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} &nbsp;
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length}}
+            </p>
+        </a>
     </div>
 
     <table class="table">
         <tbody>
+            <tr>
+                <td>
+                    <textarea ng-model="comment.text"></textarea>
+                    <input type="button" value="Submit Comment" ng-click="submit(comment)" />
+                </td>
+            </tr>
             <tr ng-repeat="comment_ in post.comments">
-                <td>{{comment_.text}}<br>
+                <td>
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{comment_.text}}<br><br>
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{comment_.author}}<br>
-                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment_.createTime}}</td>
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{comment_.createTime}}
+                </td>
             </tr>
         </tbody>
     </table>
-
 </div>
+<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="backToHome()">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Zurück
+</button>

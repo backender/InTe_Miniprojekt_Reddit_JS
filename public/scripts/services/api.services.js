@@ -6,6 +6,12 @@ services.factory('Post', function($resource) {
     });
 });
 
+services.factory('Comment', function($resource) {
+    return $resource('/comment/:id', {id: '@id'}, {
+        save : { method : 'POST', url : '/entry/:parentId/comment' }
+    });
+});
+
 redditclone.factory('User', function($resource){
     return $resource('/users', {}, {
         register: { method: 'POST', url: '/register' },

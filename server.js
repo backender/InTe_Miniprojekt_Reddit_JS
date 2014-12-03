@@ -23,7 +23,9 @@ function checkAuth(req, res, next) {
     if (typeof(req.session.user_id) == "number") {
         next();
     } else {
-        res.send('You are not authorized!');
+        //res.send('You are not authorized!');
+        res.statusCode = 401;
+        return res.send('Error 401: Unauthorized');
     }
 }
 
