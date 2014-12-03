@@ -47,4 +47,10 @@ angular.module('redditclone').controller('postIndexController', function($scope,
 
     $( "#newPostForm" ).hide();
 
+    Socket.on('message',function(msg) {
+        if((msg.action) == 'AddLink'){
+            $scope.posts.push((msg.data));
+        }
+    });
+
 });

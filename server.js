@@ -140,7 +140,7 @@ app.post('/entry', function(req, res) {
     var newLink = new Link(entries.length, req.body.title, users[req.session.user_id].name, req.body.url);	
  	entries.push(newLink);
  	res.json(newLink);
- 	io.sockets.emit('message', { action: "AddLink" });
+ 	io.sockets.emit('message', { action: "AddLink", data: newLink });
 });
 
 app.get('/entry/:id', function(req, res) {
