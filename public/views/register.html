@@ -1,9 +1,11 @@
-<form name="loginForm" ng-submit="register(credentials)" novalidate>
-    <label for="username">Username:</label>
-    <input type="text" id="username" ng-model="credentials.username">
-    <label for="password">Password:</label>
-    <input type="password" id="password"  ng-model="credentials.password">
-    <button class="btn btn-success" type="submit">Register</button>
+<form name="loginForm" ng-submit="register(credentials)">
+    <h2 class="form-signin-heading">Please sign up</h2>
+    <label for="username" class="sr-only">Email address</label>
+    <input type="text" id="username" ng-model="credentials.username" class="form-control" placeholder="Username" required="" autofocus="" style="cursor: auto;">
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" ng-model="credentials.password" class="form-control" placeholder="Password" required="" style="cursor: auto;">
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
 
 <alert ng-show="error != null">{{error.data}}</alert>
