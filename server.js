@@ -154,7 +154,9 @@ app.post('/entry/:id/up', checkAuth, function (req, res) {
 
 app.post('/entry/:id/down', checkAuth, function (req, res) {
     res.json(entries[req.params.id].rating._down(req.session.user_id));
-    io.sockets.emit('message', { action: "EntryRated" });
+    /*io.sockets.emit('message', { action: "EntryRated" });*/
+    io.sockets.emit('message', { action: "EntryRated", data: entries[req.params.id] });
+
 });
 
 app.post('/entry/:id/comment', checkAuth, function (req, res) {

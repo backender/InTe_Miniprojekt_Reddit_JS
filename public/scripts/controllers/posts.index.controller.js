@@ -14,7 +14,7 @@ angular.module('redditclone').controller('postIndexController', function($scope,
     };
 
     $scope.downVotePost = function(post){
-        Post.downVote({ id : post.id });
+        Post.downVote({ id : post.id })
     };
 
     $scope.submit = function(post){
@@ -55,7 +55,9 @@ angular.module('redditclone').controller('postIndexController', function($scope,
                     post = _post;
                 }
             });
-            post.rating.value = msg.data.rating.value;
+            $scope.$apply(
+                post.rating.value = msg.data.rating.value
+            );
         }
     });
 
